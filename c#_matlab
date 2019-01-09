@@ -1,0 +1,23 @@
+using MathWorks.MATLAB.NET.Arrays;
+using amplify;
+
+namespace ffmpeg
+{
+  public  class Program
+    {
+        static void Main(string[] args)
+        {
+            MWArray vidFile = new MWCharArray("D:/videoManage/input/car_engine.avi");
+            MWArray resultsDir = new MWCharArray("D:/videoManage/output");
+            MWArray alpha = new MWNumericArray(10);
+            MWArray lambda_c = new MWNumericArray(16);
+            MWArray r1 = new MWNumericArray(0.4);
+            MWArray r2 = new MWNumericArray(0.05);          
+            MWArray chromAttenuation = new MWNumericArray(0.1);
+            Class1 aa = new Class1();
+            object resultObj = aa.amplify_spatial_lpyr_temporal_iir_copy(0, vidFile, resultsDir, alpha, lambda_c,r1, r2, chromAttenuation);
+
+        }
+
+    }
+}
